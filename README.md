@@ -20,14 +20,16 @@ This project uses the [`file-type`](https://www.npmjs.com/package/file-type) pac
 Clone the repository and install dependencies:
 
 ```bash
-git clone <your-repo-url>
-cd file-validator
+git clone <repo>
+cd file-type-check
 npm install
 ```
 
 ## Usage
 ```bash
-npx ts-node validate-file.ts <path-to-file>
+npx ts-node index.ts <path-to-file>
+## example
+## npx ts-node index.ts ./.test.jpg
 ```
 
 ### Output
@@ -37,6 +39,10 @@ npx ts-node validate-file.ts <path-to-file>
 ```
 
 ### Configuration
+We can set allowed types in the code.
+
+This script uses an external npm package [file-type](https://npmjs.com/package/file-type), so we can only handle supported types
+> (from `file-type` npm page) This package is for detecting binary-based file formats, not text-based formats like .txt, .csv, .svg, etc.
 ```bash
 const allowedTypes: string[] = ["image/jpeg", "image/png", "application/pdf"];
 ```
