@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "tsc: build",
+            "type": "shell",
+            "command": "npx tsc -p tsconfig.json",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "run validator",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "validate-file.js",
+                "${input:filePath}"
+            ],
+            "dependsOn": "tsc: build",
+            "group": "none"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "filePath",
+            "type": "promptString",
+            "description": "Enter path to file to validate",
+            "default": "./test.jpg"
+        }
+    ]
+}
